@@ -22,7 +22,7 @@ public class DeleteUser {
 		
 		session.close();
 		factory.close();
-		System.out.println(user);
+		
 	}
 
 }

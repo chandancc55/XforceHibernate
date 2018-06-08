@@ -10,12 +10,12 @@ public class UpdateUser {
 
 	public static void main(String[] args) {
 
-		Configuration config=new Configuration().configure();
+		Configuration config=new Configuration().configure(); 
 		SessionFactory factory=config.buildSessionFactory();
 		Session session=factory.openSession();
 		
 		session.getTransaction().begin();
-		UserInfo user=session.get(UserInfo.class,10);
+		UserInfo user=session.get(UserInfo.class,10 );
 		user.setFirstName("ravi");
 		session.getTransaction().commit();
 		
