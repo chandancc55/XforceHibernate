@@ -1,14 +1,34 @@
 package com.dev.dao;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import com.dev.beans.UserInfo;
+import com.dev.util.HibernateUtils;
 
-public class HibernateImpl implements UserInfoDAO
-{
-
+public class HibernateImpl implements UserInfoDAO{
 	
+	SessionFactory factory=HibernateUtils.getSessionFactory();
 	public boolean createProfile(UserInfo user) {
-		// TODO Auto-generated method stub
-		return false;
+		Session session=null;
+		try
+		{
+		session=factory.openSession();
+		session.beginTransaction();
+		session.save(user);
+		session.getTransaction().commit();
+		return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+		
+		finally
+		{
+			session.close();
+		}
 	}
 
 	

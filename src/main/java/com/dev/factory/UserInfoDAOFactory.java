@@ -6,7 +6,7 @@ import com.dev.dao.UserInfoDAO;
 
 public class UserInfoDAOFactory 
 {
-	private final static String DATABASE="JDBC";
+	private final static String DATABASE="HIBERNATE";
 	private UserInfoDAOFactory()
 	{
 		
